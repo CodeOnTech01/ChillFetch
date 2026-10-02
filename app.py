@@ -33,12 +33,17 @@ def fetch_video():
             'message': 'Only video links from YouTube, Instagram, TikTok, Reddit, Facebook, X (Twitter), and Pinterest are supported.'
         }), 400
 
-    # 2. Configure yt-dlp to inspect media without downloading to local disk
+    # 2. Configure yt-dlp to inspect media with alternative YouTube clients to bypass extraction blocks
     ydl_opts = {
         'quiet': True,
         'no_warnings': True,
         'skip_download': True,
         'extract_flat': False,
+        'extractor_args': {
+            'youtube': {
+                'player_client': ['ios', 'android', 'tv_simply', 'mweb']
+            }
+        }
     }
 
     try:
