@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       try {
         // Send link to the Flask backend route
-        const response = await fetch('/api/fetch', {
+        const response = await fetch('https://chillfetch-api.onrender.com', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
